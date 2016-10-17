@@ -1,0 +1,29 @@
+{
+	"name": "sysml",
+	"displayName": "SysML",
+	"description": "SysML support for VSCode",
+	"version": "0.0.4",
+	"publisher": "martinring",
+	"engines": {
+		"vscode": "^0.10.6"
+	},
+	"categories": [
+		"Languages"
+	],
+	"contributes": {
+		"languages": [{
+			"id": "sysml",
+			"aliases": ["SysML", "sysml"],
+			"extensions": [".sysml"],
+			"configuration": "./sysml.configuration.json"
+		}],
+		"grammars": [{
+			"language": "sysml",
+			"scopeName": "source.sysml",
+			"path": "./syntaxes/sysml.json"
+		}]
+	},
+	"extensionDependencies": [
+		"martinring.ocl"
+	]
+}

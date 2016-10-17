@@ -1,0 +1,64 @@
+{
+  "name": "SysML",
+  "scopeName": "source.sysml",
+  "fileTypes": [".sysml"],
+  "uuid": "0e3ad755-0866-4d5d-ae1f-05d25ffdc236",
+  "patterns": [
+    { "include": "#comments" },
+    {
+      "name": "keyword.sysml",
+      "match": "\\b(bdd|act|ibd|pkg|par|req|seq|stm|uc|package|block|references|constraints|operations|post|values|pre|in|ports|owned|behaviors|initial|state|machine|choose|context|namespace|attributes|properties)\\b"
+    },
+    { "include": "#ocl" },
+    {
+      "match": "\\b([\\p{L}_$]+)\\s*(:\\s*([\\p{L}_$]+))",
+      "captures": {
+        "1": { "name": "variable.name" },
+        "3": { "name": "entity.name.type.sysml" }
+      }
+    },
+    {
+      "match": "\\b([\\p{L}_$]+)\\s*\\(\\s*\\)",
+      "captures": {
+        "1": { "name": "entity.name.method.function.sysml" }
+      }
+    },
+    {
+      "begin": "\\b([\\p{L}_$]+)\\s*\\(",
+      "end": "\\)",
+      "captures": {
+        "1": { "name": "entity.name.method.function.sysml" }
+      },
+      "patterns": [
+        {
+          "match": "\\b([\\p{L}_$]+)\\s*(:\\s*([\\p{L}_$]+))",
+          "captures": {
+            "1": { "name": "variable.parameter.sysml" },
+            "3": { "name": "entity.name.type.sysml" }
+          }
+        }
+      ]
+    }
+  ],
+
+ "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "match": "--.*$",
+          "name": "comment.sysml"
+        }
+      ]
+    },
+    "ocl": {
+      "patterns": [
+        {
+          "begin": "\\{",
+          "end": "\\}",
+          "name": "string.sysml",
+          "patterns": [{ "include": "source.ocl" }]
+        }
+      ]
+    }
+  }
+}

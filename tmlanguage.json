@@ -1,0 +1,156 @@
+{
+  "$schema": "http://json-schema.org/schema#",
+  "id": "http://www.flatmap.net/schemas/tmlanguage.json",
+  "$ref": "#/definitions/grammar",
+  "definitions": {
+    "grammar": {
+      "type": "object",
+        "properties": {
+          "patterns": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/pattern" },
+            "default": [ ]
+          },
+          "repository": {
+            "type": "object",
+            "additionalProperties": {
+              "$ref": "#/definitions/grammar"
+            }
+          }
+        },
+        "required": [
+          "patterns"
+        ]
+    },
+    "captures": {
+      "type": "object",
+      "patternProperties": {
+        "^[0-9]+$": {
+          "type": "object",
+          "properties": {
+            "name": { "$ref": "#/definitions/name" },
+            "patterns": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/pattern" },
+              "default": [ ]
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "pattern": {
+      "type": "object",
+      "properties": {
+        "comment": { "type": "string" },
+        "disabled": { "type": "integer", "minimum": 0, "maximum": 1 },
+        "include": { "type": "string" },
+        "match": { "type": "string" },
+        "name": { "$ref": "#/definitions/name" },
+        "contentName": { "$ref": "#/definitions/name" },
+        "begin": { "type": "string" },
+        "end": { "type": "string" },
+        "captures": { "$ref": "#/definitions/captures" },
+        "beginCaptures": { "$ref": "#/definitions/captures" },
+        "endCaptures": { "$ref": "#/definitions/captures" },
+        "patterns": {
+          "description": "applies to the region between the begin and end matches",
+          "type": "array",
+          "items": { "$ref": "#/definitions/pattern" },
+          "default": [ ]
+        }
+      },
+      "dependencies": {
+        "begin": ["end"],
+        "end": ["begin"],
+        "contentName": ["begin","end"],
+        "beginCaptures": ["begin","end"],
+        "endCaptures": ["begin","end"],
+        "patterns": ["begin","end"]
+      }
+    },
+    "name": {
+      "anyOf": [
+        {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(\\.[a-z0-9]+)*$"
+        },
+        {
+          "type": "string",
+          "enum": [
+            "comment",
+            "constant.language",
+            "constant.numeric",
+            "constant.regexp",
+            "constant.rgb-value",
+            "constant.sha.git-rebase",
+            "emphasis",
+            "entity.name.class",
+            "entity.name.function",
+            "entity.name.method",
+            "entity.name.selector",
+            "entity.name.tag",
+            "entity.name.type",
+            "entity.other.attribute-name",
+            "header",
+            "invalid",
+            "keyword.control.less",
+            "keyword.control",
+            "keyword.operator.new",
+            "keyword.operator",
+            "keyword.other.unit",
+            "keyword",
+            "markup.bold",
+            "markup.changed",
+            "markup.deleted",
+            "markup.heading",
+            "markup.inline.raw",
+            "markup.inserted",
+            "markup.italic",
+            "markup.punctuation.list.beginning",
+            "markup.punctuation.quote.beginning",
+            "markup.underline",
+            "meta.cast",
+            "meta.parameter.type.variable",
+            "meta.preprocessor.numeric",
+            "meta.preprocessor.string",
+            "meta.preprocessor",
+            "meta.return-type",
+            "meta.return.type",
+            "meta.selector",
+            "meta.structure.dictionary.key.python",
+            "meta.tag",
+            "meta.type.annotation",
+            "meta.type.name",
+            "metatag.php",
+            "storage.modifier.import.java",
+            "storage.modifier.package.java",
+            "storage.modifier",
+            "storage.type.cs",
+            "storage.type.java",
+            "storage.type",
+            "storage",
+            "string.html",
+            "string.jade",
+            "string.regexp",
+            "string.xml",
+            "string.yaml",
+            "string",
+            "strong",
+            "support.function.git-rebase",
+            "support.property-value",
+            "support.type.property-name.css",
+            "support.type.property-name.less",
+            "support.type.property-name.scss",
+            "support.type.property-name",
+            "support.type",
+            "variable.name",
+            "variable.parameter",
+            "variable"
+          ]
+        }
+      ]
+    }
+  }
+}
