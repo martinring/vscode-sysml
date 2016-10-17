@@ -5,7 +5,7 @@
       "fileMatch": [
         "/syntaxes/*.json"
       ],
-      "url": "./tmlanguage.json"
+      "url": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json"
     }
   ]
 }

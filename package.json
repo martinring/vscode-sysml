@@ -2,8 +2,11 @@
 	"name": "sysml",
 	"displayName": "SysML",
 	"description": "SysML support for VSCode",
-	"version": "0.0.4",
+	"version": "0.1.0",
 	"publisher": "martinring",
+	"repository": {
+		"url": "https://github.com/martinring/vscode-sysml"
+	},
 	"engines": {
 		"vscode": "^0.10.6"
 	},
