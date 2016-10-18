@@ -143,7 +143,7 @@
       "patterns": [
         {
           "begin": "^(\\s*)(block)(\\s+([\\p{L}$_][\\p{L}$_0-9]*))",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "keyword.sysml" },
             "4": { "name": "entity.name.type" }
@@ -169,7 +169,7 @@
       "patterns": [
         {
           "begin": "^(\\s*)([\\p{L}$_][\\p{L}$_0-9]*)\\s*\\(\\s*(([\\p{L}$_][\\p{L}$_0-9]*)\\s*:\\s*([\\p{L}$_][\\p{L}$_0-9]*))?(\\s*,\\s*([\\p{L}$_][\\p{L}$_0-9]*)\\s*:\\s*([\\p{L}$_][\\p{L}$_0-9]*))*\\s*\\)\\s*(?::\\s*([\\p{L}$_][\\p{L}$_0-9]*))?",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "entity.name.method" },
             "4": { "name": "variable.parameter" },
@@ -180,7 +180,7 @@
           "patterns": [
             {
               "begin": "^(\\s*)(?=(pre|post)\\b)",
-              "end": "^(?!\\1\\s+|\\s*--)",
+              "end": "^(?!\\1\\s+|\\s*$)",
               "patterns": [
                 { "include": "source.ocl" }
               ]
@@ -193,7 +193,7 @@
       "patterns": [
         {
           "begin": "^(\\s*)([\\p{L}$_][\\p{L}$_0-9]*)\\s*(?::\\s*([\\p{L}$_][\\p{L}$_0-9]*))(?:\\s*\\[(?:[0-9]+|\\*)(\\.\\.(?:[0-9]+|\\*))?\\])?(?:\\s*<-\\s*([\\p{L}$_][\\p{L}$_0-9]*))?(?=\\s*$|\\s*\\{[^\\}]*\\s*\\}?\\s*$)",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "variable.other" },
             "3": { "name": "entity.name.type" },
@@ -209,7 +209,7 @@
       "patterns": [
         {
           "begin": "^(\\s*)([\\p{L}$_][\\p{L}$_0-9]*)\\s*(?::\\s*([\\p{L}$_][\\p{L}$_0-9]*))(?:\\s*\\[(?:[0-9]+|\\*)(\\.\\.(?:[0-9]+|\\*))?\\])?(?=\\s*$|\\s*\\{[^\\}]*\\s*\\}?\\s*$)",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "variable.other" },
             "3": { "name": "entity.name.type" }
@@ -224,7 +224,7 @@
       "patterns": [
         {
           "begin": "^(\\s*)(?:(in|out|inout)\\s+)?(?:([\\p{L}$_][\\p{L}$_0-9]*))?(?:\\s*:\\s*([\\p{L}$_][\\p{L}$_0-9]*))?(?=\\s*$|\\s*\\{[^\\}]*\\s*\\}?\\s*$)",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "keyword.sysml" },
             "3": { "name": "variable.other" },
@@ -277,7 +277,7 @@
       "patterns": [
         {
           "begin": "^(\\s*)(?:(initial)\\s+)?(state)(?:\\s+([\\p{L}$_][\\p{L}$_0-9]*))?\\s*(?=$|--)",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "keyword.sysml" },
             "3": { "name": "keyword.sysml" },
@@ -293,7 +293,7 @@
       "patterns": [
         {
           "begin": "^(\\s*)(state\\s+machine)(?:\\s+([\\p{L}$_][\\p{L}$_0-9]*))?\\s*(?=$|--)",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "keyword.sysml" },
             "3": { "name": "entity.name.type" }
@@ -308,7 +308,7 @@
       "patterns": [
         {
           "begin": "^(\\s*)(operations)\\s*(?=$|--)",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "keyword.sysml" }
           },
@@ -319,17 +319,17 @@
         },
         {
           "begin": "^(\\s*)(constraints)\\s*(?=$|--)",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "keyword.sysml" }
           },
           "patterns": [
-            { "include": "source.ocl" }
+            { "include": "#ocl" }
           ]
         },
         {
           "begin": "^(\\s*)(references)\\s*(?=$|--)",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "keyword.sysml" }
           },
@@ -341,7 +341,7 @@
         },
         {
           "begin": "^(\\s*)(ports)\\s*(?=$|--)",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "keyword.sysml" }
           },
@@ -352,7 +352,7 @@
         },
         {
           "begin": "^(\\s*)(values)\\s*(?=$|--)",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "keyword.sysml" }
           },
@@ -363,7 +363,7 @@
         },
         {
           "begin": "^(\\s*)(owned\\s+behaviors)\\s*(?=$|--)",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
             "2": { "name": "keyword.sysml" }
           },
@@ -374,19 +374,30 @@
         },
         {
           "begin": "^(\\s*)(.*(?=$|--))",
-          "end": "^(?!\\1\\s+|\\s*--)",
+          "end": "^(?!\\1\\s+|\\s*$)",
           "beginCaptures": {
-            "2": { "name": "entity.name.section.string" }
+            "2": { "name": "entity.name.other.attribute-name.sysml" }
           },
-          "contentName": "markup.raw"
+          "contentName": "comment.block.documentation.sysml"
         }
       ]
     },
     "ocl": {
       "patterns": [
         {
-          "begin": "\\{",
+          "match": "\\{(?:\\s*([\\p{L}$_][\\p{L}$_0-9]*)\\s*:)?\\s*(?:(subsets)\\s+([\\p{L}$_][\\p{L}$_0-9]*))\\s*\\}",
+          "captures": {
+            "1": { "name": "entity.name.section.sysml.strong" },
+            "2": { "name": "keyword.sysml" },
+            "3": { "name": "variable.other" }
+          }
+        },
+        {
+          "begin": "\\{(?:\\s*([\\p{L}$_][\\p{L}$_0-9]*)\\s*:)?",
           "end": "\\}",
+          "beginCaptures": {
+            "1": { "name": "entity.name.section.sysml.strong" }
+          },
           "name": "meta.annotation",
           "patterns": [{ "include": "source.ocl" }]
         }
