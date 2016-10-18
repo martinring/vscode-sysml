@@ -385,7 +385,7 @@
     "ocl": {
       "patterns": [
         {
-          "match": "\\{(?:\\s*([\\p{L}$_][\\p{L}$_0-9]*)\\s*:)?\\s*(?:(subsets)\\s+([\\p{L}$_][\\p{L}$_0-9]*))\\s*\\}",
+          "match": "\\{(?:\\s*(?!derive|pre|post|body|inv)([\\p{L}$_][\\p{L}$_0-9]*)\\s*:)?\\s*(?:(subsets)\\s+([\\p{L}$_][\\p{L}$_0-9]*))\\s*\\}",
           "captures": {
             "1": { "name": "entity.name.section.sysml.strong" },
             "2": { "name": "keyword.sysml" },
@@ -393,7 +393,7 @@
           }
         },
         {
-          "begin": "\\{(?:\\s*([\\p{L}$_][\\p{L}$_0-9]*)\\s*:)?",
+          "begin": "\\{(?:\\s*(?!derive|pre|post|body|inv)([\\p{L}$_][\\p{L}$_0-9]*)\\s*:)?",
           "end": "\\}",
           "beginCaptures": {
             "1": { "name": "entity.name.section.sysml.strong" }
